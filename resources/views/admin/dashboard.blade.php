@@ -4,6 +4,7 @@
 <div class="container-fluid">
 <div class="page-title">
  <h2>Dashboard</h2>
+ @if (Auth::user()->isSuperAdmin()) Admin @endif
 </div>
 </div>
 <div class="container-fluid">
@@ -80,7 +81,7 @@
                     <div class="col-xl-6 col-md-6">
                         <div class="card card-stats">
                             <!-- Card body -->
-                            <a href="{{ route('invoices.index') }}">
+                            <a href="{{ route('expenses.index') }}">
                                 <div class="card-body dashboard-card">
                                     <div class="row">
                                         <div class="col">
@@ -146,7 +147,7 @@
                             <div class="col-xl-4 col-md-6 ">
                                 <div class="card card-stats">
                                     <!-- Card body -->
-                                    <a href="{{ route('invoices.index') }}">
+                                    <a href="{{ route('expenses.index') }}">
                                         <div class="card-body" style="border-radius: 10px; background: #735fdc26;">
                                             <div class="row">
                                                 <div class="col">
@@ -172,7 +173,7 @@
                             <div class="col-xl-4 col-md-6  ">
                                 <div class="card card-stats">
                                     <!-- Card body -->
-                                    <a href="{{ route('invoices.index') }}">
+                                    <a href="{{ route('expenses.index') }}">
                                         <div class="card-body" style="border-radius: 10px; background: #2dce8926;">
                                             <div class="row">
                                                 <div class="col">
@@ -199,7 +200,7 @@
                             <div class="col-xl-4 col-md-6">
                                 <div class="card card-stats">
                                     <!-- Card body -->
-                                    <a href="{{ route('invoices.index') }}">
+                                    <a href="{{ route('expenses.index') }}">
 
                                         <div class="card-body" style="border-radius: 10px; background: #fb634024;">
                                             <div class="row">

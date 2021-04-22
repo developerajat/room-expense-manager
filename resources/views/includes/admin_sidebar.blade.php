@@ -37,10 +37,10 @@ else{
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ $segment1 == 'settings' ? 'active' : '' }}"
-                                href="#">
+                            <a class="nav-link {{ $segment1 == 'expenses' ? 'active' : '' }}"
+                                href="{{ route('expenses.index') }}">
                                 <i class="fas fa-cog text-warning"></i>
-                                <span class="nav-link-text">Testing</span>
+                                <span class="nav-link-text">Manage Expenses</span>
                             </a>
                         </li>
                     @endif

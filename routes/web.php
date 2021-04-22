@@ -54,23 +54,21 @@ Route::namespace('App\Http\Controllers')->group(function() {
             Route::resource('users', 'UsersController');
             Route::get('user/change-status/', 'UsersController@changeStatus')->name('users.ChangeStatus');
 
-            Route::get('sendMail/{id}','InvoiceController@sendMail')->name('invoice.sendMail');
-            Route::get('invoices/{id}/change-status', 'InvoiceController@changeStatus')->name('invoice.ChangeStatus');
-            Route::get('invoices/{id}/download','InvoiceController@export_pdf')->name('invoice.export_pdf');
-            Route::resource('invoices', 'InvoiceController');
-
             Route::resource('settings', 'SettingController');
             Route::get('settings/change-status/', 'SettingController@changeStatus')->name('setting.ChangeStatus');
         });
 
         Route::group(['middleware' => 'user', 'prefix' => 'user', 'as' => 'user.'], function() {
             Route::get('dashboard','DashboardController@userDashboard')->name('dashboard');
-
-            Route::get('invoices/{id}/send', 'InvoiceController@sendMail')->name('invoice.sendMail');
-            Route::get('invoices/{id}/download', 'InvoiceController@export_pdf')->name('invoice.export_pdf');
-            Route::resource('invoices', 'InvoiceController');
         });
 
+        Route::get('expenses','ExpenseController@index')->name('expenses.index');
+        Route::get('expenses/create','ExpenseController@create')->name('expenses.create');
+        Route::get('expenses/store','ExpenseController@store')->name('expenses.store');
+        Route::get('expenses/show/{id}','ExpenseController@show')->name('expenses.show');
+        Route::get('expenses/edit/{id}','ExpenseController@edit')->name('expenses.edit');
+        Route::put('expenses/update/{id}','ExpenseController@update')->name('expenses.update');
+        
         Route::get('profile', 'AuthController@profile')->name('adminProfile');
         Route::get('edit/profile', 'AuthController@editProfile')->name('editProfile');
         Route::post('profileUpdate', 'AuthController@profileUpdate')->name('profileUpdate');
